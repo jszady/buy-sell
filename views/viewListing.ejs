@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
-    <link rel="stylesheet" href="/styles/newListing.css" />
+    <link rel="stylesheet" href="/styles/viewListing.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
@@ -23,7 +23,14 @@
     <h1>New Listing</h1>
     <main>
       <form action="/newlisting" method="POST">
-            <label for="image">Image URL:</label>
+        <div class="upperDetails">
+          <div class="imageContainer">
+            <img src="https://i.ibb.co/HgFHx7p/poke.jpg" />
+            <label for="image">Image URL</label>
+            <input type="text" name="image">
+          </div>
+          <div class="upperRightDetails">
+            <label for="image">Image URL</label>
             <input type="text" name="image">
             <label for="brand">Brand:</label>
             <input type="text" name="brand"/>
@@ -37,9 +44,13 @@
             <input type="text" name="transmission"/>
             <label for="price">Price:</label>
             <input type="text" name="price"/>
-            <label for="description">Description:</label>
-            <input type="textarea" name="description"/>
-            <button type="submit">Submit Listing</button>
+          </div>
+        </div>
+        <div class="bottomDetails">
+          <label for="description">Description:</label>
+          <input type="textarea" name="description"/>
+          <button type="submit">Submit Listing</button>
+        </div>
       </form>
     </main>
   </body>
