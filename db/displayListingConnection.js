@@ -12,8 +12,10 @@ const dbParams = {
 const pool = new Pool(dbParams);
 pool.connect();
 
+//Function to generate listing when user puts listing id into url bar
 const showListingByID = function (id) {
 
+  //Creates the SQL to search of that listing/user details
   return pool
     .query(`SELECT listings.*, users.phone_number, users.email as email
     FROM listings
