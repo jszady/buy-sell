@@ -32,6 +32,12 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 
+
+const loginRouter = require('./routes/login-router.js')
+const registerRouter = require('./routes/register-router.js')
+const newListingRouter = require('./routes/newListing-router.js')
+const mainPageRouter = require('./routes/mainPage-router.js')
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -43,10 +49,15 @@ app.use('/users', usersRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+app.use(loginRouter);
+app.use(registerRouter);
+app.use(newListingRouter);
+app.use(mainPageRouter);
 
-app.get('/', (req, res) => {
+
+/*app.get('/', (req, res) => {
   res.render('index');
-});
+});*/
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
