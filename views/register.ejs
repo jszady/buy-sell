@@ -19,6 +19,31 @@
 
   <body>
     <%- include('header') %>
-    <h1>register! 🥔</h1>
+    <div class="main">
+      <div class="container">
+        <h2>SIGN IN</h2>
+        <form method="POST" action="/login">
+          <input
+            type="text"
+            id="username"
+            class="form-input"
+            name="login"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            name="password"
+            placeholder="Password"
+          />
+          <input type="submit" class="register" value="register" />
+          <span
+            >Already have and account?
+            <a href="/login" class="login-link">Login</a></span
+          >
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
@@ -19,6 +20,31 @@
 
   <body>
     <%- include('header') %>
-    <h1>login! 🥔</h1>
+    <div class="main">
+      <div class="container">
+        <h2>SIGN IN</h2>
+        <form method="POST" action="/login">
+          <input
+            type="text"
+            id="username"
+            class="form-input"
+            name="login"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            name="password"
+            placeholder="Password"
+          />
+          <input type="submit" class="login-btn" value="login" />
+          <span
+            >Dont have an account?
+            <a href="/register" class="register-link">Register</a></span
+          >
+        </form>
+      </div>
+    </div>
   </body>
 </html>
