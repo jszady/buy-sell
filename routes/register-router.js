@@ -1,17 +1,24 @@
 const express = require("express");
 const router = express.Router();
 const helpers = require("../db/queries/registerUser");
+const { generateRandomString } = require("../helpers/generateRandomString");
 
 router.get("/register", (req, res) => {
   res.render("register");
 });
-
+/*
+  see if the cookie exists (eq.session.userId) redirect to homepage
+ line 15
+ */
 router.post("/register", (req, res) => {
   const { name, email, password, city, phone_number } = req.body;
 
   helpers
     .addUserToDataBase(name, email, password, city, phone_number)
-    .then(() => {
+    .then((response) => {
+      const id = generateRandomString();
+      req.session.userId = id;
+      console.log("res = ", response);
       res.redirect("/");
     })
     .catch((err) => {
