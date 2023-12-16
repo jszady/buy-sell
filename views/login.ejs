@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-
-<head>
-  <title>Home Page</title>
-
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-</head>
-
-<body>
-  <h1>login! 🥔</h1>
-</body>
-
-=======
   <head>
+    <title>Home Page</title>
+
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/login.css" />
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
   </head>
+
   <body>
-    
+    <%- include('header') %>
+    <div class="main">
+      <div class="container">
+        <h2>SIGN IN</h2>
+        <form method="POST" action="/login">
+          <input
+            type="text"
+            id="username"
+            class="form-input"
+            name="login"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            name="password"
+            placeholder="Password"
+          />
+          <input type="submit" class="login-btn" value="login" />
+          <span
+            >Dont have an account?
+            <a href="/register" class="register-link">Register</a></span
+          >
+        </form>
+      </div>
+    </div>
   </body>
->>>>>>> feature/login
 </html>

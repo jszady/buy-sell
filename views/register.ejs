@@ -1,24 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Home Page</title>
 
-<head>
-  <title>Home Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/register.css" />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
+  </head>
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
-</head>
+  <body>
+    <%- include('header') %>
+    <div class="main">
+      <div class="container">
+        <h2>Register</h2>
+        <form method="POST" action="/register">
+          <input
+            type="text"
+            id="name"
+            class="form-input"
+            name="name"
+            placeholder="Enter your username"
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-input"
+            name="email"
+            placeholder="Enter your email"
+          />
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            name="password"
+            placeholder="Enter a password"
+          />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            class="form-input"
+            name="city"
+            placeholder="Enter your city"
+          />
+          <input
+            type="text"
+            name="phone_number"
+            id="phone_number"
+            class="form-input"
+            name="phone_number"
+            placeholder="Enter your phone number"
+          />
 
-<body>
-  <h1>register! 🥔</h1>
-</body>
-
+          <input type="submit" class="register-btn" value="Sign Up" />
+          <span
+            >Already have and account?
+            <a href="/login" class="login-link">Login</a></span
+          >
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
