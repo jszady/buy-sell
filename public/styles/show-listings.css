@@ -1,16 +1,17 @@
-
+/* For organiztion of listings details */
 .main-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/*For photo thumbnail on listing details page */
 .thumbnail {
   height: 30em;
   border: black 2px solid;
 }
 
-
+/*href for user to send email*/
 .mailto {
   border: black solid 2px;
   padding: 15px;
