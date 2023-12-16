@@ -13,10 +13,11 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(
   session({
+    name: "session",
     secret: "labber",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true },
+    //resave: false,
+    // saveUninitialized: true,
+    //cookie: { secure: true },
   })
 );
 

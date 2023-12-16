@@ -15,10 +15,10 @@ router.post("/register", (req, res) => {
 
   helpers
     .addUserToDataBase(name, email, password, city, phone_number)
-    .then((response) => {
+    .then(() => {
       const id = generateRandomString();
       req.session.userId = id;
-      console.log("res = ", response);
+      console.log({ req: req.session });
       res.redirect("/");
     })
     .catch((err) => {
