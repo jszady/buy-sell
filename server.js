@@ -37,7 +37,7 @@ const loginRouter = require('./routes/login-router.js')
 const registerRouter = require('./routes/register-router.js')
 const newListingRouter = require('./routes/newListing-router.js')
 const mainPageRouter = require('./routes/mainPage-router.js')
-
+const listingsRouter = require('./routes/listings-router.js')
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -53,7 +53,7 @@ app.use(loginRouter);
 app.use(registerRouter);
 app.use(newListingRouter);
 app.use(mainPageRouter);
-
+app.use(listingsRouter);
 
 /*app.get('/', (req, res) => {
   res.render('index');
