@@ -5,7 +5,7 @@ const { addUserToDatabase } = require("../db/queries/addUserToDatabase");
 const { getUserById } = require("../db/queries/getUserById");
 
 router.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", { user: req.session.user });
 });
 /*
   see if the cookie exists (eq.session.userId) redirect to homepage
