@@ -15,9 +15,9 @@ router.post("/register", (req, res) => {
 
   helpers
     .addUserToDataBase(name, email, password, city, phone_number)
-    .then(() => {
-      const id = generateRandomString();
-      req.session.userId = id;
+    .then((userId) => {
+      req.session.userId = userId;
+
       console.log({ req: req.session });
       res.redirect("/");
     })

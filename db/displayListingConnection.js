@@ -17,7 +17,7 @@ const showListingByID = function (id) {
 
   //Creates the SQL to search of that listing/user details
   return pool
-    .query(`SELECT listings.*, users.phone_number, users.email as email
+    .query(`SELECT listings.*, users.phone_number, users.email as email, users.name as name
     FROM listings
     JOIN users ON listings.users_id = users.id
     WHERE listings.id = $1`, [id])
