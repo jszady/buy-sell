@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const helpers = require("../db/queries/userExists");
+const bcrypt = require("bcrypt");
+const { getUserByEmail } = require("../db/queries/getUserByEmail");
 
 router.get("/login", (req, res) => {
   res.render("login");
@@ -8,20 +9,26 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  helpers
-    .userExists(email, password)
+  getUserByEmail(email)
     .then((user) => {
-      console.log(email, password);
       if (user) {
-        req.session.userId = user.id;
-        console.log(req.session.userId);
-        res.redirect("/");
+        return bcrypt
+          .compare(password, user.password)
+          .then((isSamePassword) => {
+            if (isSamePassword) {
+              req.session.user = user;
+              res.redirect("/");
+            } else {
+              res.status(401).send("Sorry your password doesnt match");
+            }
+          });
       } else {
-        res.status(401).send("Invalid email or password");
+        res.status(401).send("User doesnt exist");
       }
     })
     .catch((err) => {
-      console.error("Error in login route:", err);
+      console.log("There is an error in log in route", err.message);
+      res.status(401).send("error occured in login ");
     });
 });
 
