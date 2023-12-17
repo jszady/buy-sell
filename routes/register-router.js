@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const helpers = require("../db/queries/registerUser");
-const { generateRandomString } = require("../helpers/generateRandomString");
+const helpers = require("../db/queries/addUserToDatabase");
+const { addUserToDatabase } = require("../db/queries/addUserToDatabase");
+const { getUserById } = require("../db/queries/getUserById");
 
 router.get("/register", (req, res) => {
   res.render("register");
@@ -13,17 +14,20 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   const { name, email, password, city, phone_number } = req.body;
 
-  helpers
-    .addUserToDataBase(name, email, password, city, phone_number)
-    .then((userId) => {
-      req.session.userId = userId;
-
-      console.log({ req: req.session });
+  if (!name || !email || !password || !city || !phone_number) {
+    return res.status(400).send("No register feild can be empty");
+  }
+  addUserToDatabase(name, email, password, city, password)
+    .then((newUserId) => {
+      return getUserById(newUserId);
+    })
+    .then((user) => {
+      req.session.user = user;
       res.redirect("/");
     })
     .catch((err) => {
-      console.log("there is an error in the register-route: ", err);
-      res.status(400).send("cant register user");
+      console.log("There is an error in the register rount", err.message);
+      res.status(404).send("cnat register user");
     });
 });
 

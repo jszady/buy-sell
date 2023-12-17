@@ -5,23 +5,22 @@ require("dotenv").config();
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const morgan = require("morgan");
-const session = require("express-session");
+const cookieSession = require("cookie-session");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-app.set("trust proxy", 1);
+app.set("view engine", "ejs");
+
 app.use(
-  session({
+  cookieSession({
     name: "session",
-    secret: "labber",
-    //resave: false,
-    // saveUninitialized: true,
-    //cookie: { secure: true },
+    keys: ["key1"],
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
-
-app.set("view engine", "ejs");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
