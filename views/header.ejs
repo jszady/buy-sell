@@ -1,9 +1,18 @@
 <nav class="nav-bar">
   <div class="logo">Buy&SellNow</div>
   <ul class="nav-links">
+    <% if (user) { %>
+    <!-- User is logged in -->
+    <li><span>Welcome, <%= user.email %></span></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <% } else { %>
+    <!-- No user logged in -->
     <li><a href="/">Home</a></li>
     <li><a href="/login">Login</a></li>
     <li><a href="/register">Register</a></li>
+    <% } %>
+
     <li><a href="/newListing" class="btn">Create Post</a></li>
   </ul>
 </nav>

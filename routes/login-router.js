@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 const { getUserByEmail } = require("../db/queries/getUserByEmail");
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  console.log("this is the user:::: ", req.session.user);
+  res.render("login", { user: req.session.user });
 });
 
 router.post("/login", (req, res) => {
