@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Users</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/users-listings.css" />
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/users.js"></script>
+  </head>
+
+  <body>
+    <%- include('header') %>
+    <h1>sold seller</h1>
+
+    <div class="display-listing">
+      <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
+      <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
+        <div class="container-listing-description">
+          <div class="listing-font">
+            <p><b>Colour:</b> <%= listing.color %></p>
+            <p><b>Transmission:</b> <%= listing.transmission %></p>
+            <p><b>Description:</b> <%= listing.description %><p>
+              <form method="POST" action="/sold">
+                <input
+                    type="hidden"
+                    name="id"
+                    value="<%= listing.id %>" />
+
+              <button type="submit" class="sold-btn">SOLD</button>
+              </form>
+              <form method="POST" action="/relist">
+                <input
+                    type="hidden"
+                    name="id"
+                    value="<%= listing.id %>" />
+
+              <button type="submit" class="relist-btn">Relist</button>
+              </form>
+
+          </div>
+            <div>
+              <p class="price-font"><b>Price:</b> $<%= price %></p>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

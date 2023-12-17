@@ -10,5 +10,6 @@ CREATE TABLE listings (
   color VARCHAR(255),
   transmission VARCHAR(255),
   price INTEGER,
-  description TEXT
+  description TEXT,
+  sold VARCHAR(255) DEFAULT NULL
 );
