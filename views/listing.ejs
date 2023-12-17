@@ -29,16 +29,15 @@
       <div class="display-listing">
         <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
         <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
-        <div class="container-listing-description">
-          <div class="listing-font">
-          <p><b>Colour:</b> <%= listing.color %></p>
-          <p><b>Transmission:</b> <%= listing.transmission %></p>
-
-          <p><b>Description:</b> <%= listing.description %><p>
-          </div>
-          <div>
-        <p class="price-font"><b>Price:</b> $<%= price %></p>
-          </div>
+          <div class="container-listing-description">
+            <div class="listing-font">
+              <p><b>Colour:</b> <%= listing.color %></p>
+              <p><b>Transmission:</b> <%= listing.transmission %></p>
+              <p><b>Description:</b> <%= listing.description %><p>
+            </div>
+              <div>
+                <p class="price-font"><b>Price:</b> $<%= price %></p>
+              </div>
           </div>
       </div>
 
@@ -60,43 +59,42 @@
 
             <div>
               <form method="POST" action="/sms">
+                <div >
+                  <input class="user-number-textarea"
+                    type="text"
+                    id="userNumber"
+                    class="form-input"
+                    name="userNumber"
+                    placeholder="Your Phone Number"
+                  />
+                </div>
 
-              <div >
-                <input class="user-number-textarea"
-                  type="text"
-                  id="userNumber"
-                  class="form-input"
-                  name="userNumber"
-                  placeholder="Your Phone Number"
-                />
-              </div>
+                <div>
+                  <input class="user-message-textarea"
+                    type="text"
+                    id="message"
+                    class="form-input"
+                    name="text"
+                    placeholder="Message"
+                  />
+                  <output name="counter" class="countdown" id="max-count">120</output>
+                </div>
 
-              <div>
-                <input class="user-message-textarea"
-                  type="text"
-                  id="message"
-                  class="form-input"
-                  name="text"
-                  placeholder="Message"
-                />
-                <output name="counter" class="countdown" id="max-count">120</output>
-              </div>
+                  <input
+                    type="hidden"
+                    name="number"
+                    value="<%= listing.phone_number %>" />
 
-                <input
-                  type="hidden"
-                  name="number"
-                  value="<%= listing.phone_number %>" />
-
-               <div>
-                 <input type="submit" class="sms-button" value="send" />
-              </div>
+                <div>
+                  <input type="submit" class="sms-button" value="send" />
+                </div>
 
             </form>
 
          </div>
 
         </div>
-        </div>
+      </div>
 
     <br>
 

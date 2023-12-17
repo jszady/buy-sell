@@ -5,11 +5,13 @@
   align-items: center;
 }
 
+
 /*For photo thumbnail on listing details page */
 .thumbnail {
   height: 30em;
   border: black 2px solid;
 }
+
 
 /*href for user to send email*/
 .mailto {
@@ -17,12 +19,16 @@
   margin: 15px;
 }
 
+
+/*For the body of the page*/
 .display-page {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+
+/*The container that displays the listing details*/
 .display-listing {
   display: flex;
   flex-direction: column;
@@ -36,11 +42,14 @@
 }
 
 
+/*The parent of email seller and text seller*/
 .contact-seller-form {
   display: flex;
   flex-direction: column;
 }
 
+
+/*Container for the emai lseller form*/
 .email-seller-form {
   display: flex;
   flex-direction: column;
@@ -53,6 +62,7 @@
 }
 
 
+/*container for the text seller form */
 .text-seller-form {
 
   background: linear-gradient(to bottom, #f5f5f5, #e8e8e8);
@@ -63,6 +73,8 @@
   margin: 5em 0em 0em 0em;
 }
 
+
+/*Email seller button*/
 .mailto-button {
   padding: 5px 15px;
   background-color: #3498db;
@@ -78,10 +90,14 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+/*text seller heading to center it*/
 .text-seller-heading {
   text-align: center;
 }
 
+
+/*Text area for user to input their own phone number when texting seller*/
 .user-number-textarea {
     width: 60%;
     padding: 1%;
@@ -90,10 +106,14 @@
 }
 
 
+/*Text area for user to input their MESSAGE when texting seller*/
 .user-message-textarea {
   width: 100%;
   padding: 1%;
 }
+
+
+/*text seller button*/
 .sms-button {
   margin-top: 3%;
   padding: 5px 15px;
@@ -110,21 +130,27 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+/*Countdown of characters text*/
 .countdown {
   font-size: small;
 }
 
 
+/*listing details font size*/
 .listing-font {
   font-size: large;
   padding-top: 20%
 }
 
 
+/*listing price font*/
 .price-font {
   font-size: x-large;
 }
 
+
+/*Container that holds are the listing details*/
 .container-listing-description{
     display: flex;
     justify-content: space-between;
