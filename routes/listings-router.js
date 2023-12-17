@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
         return res.status(404).send('Listing not available');
       }
       const prices = listing.price.toLocaleString()
-      console.log(prices)
+
       const exports = {listing: listing, price: prices}
       res.render('listing', exports);
     })
@@ -34,12 +34,17 @@ router.post('/sms', (req, res) => {
   const adminPhoneNumber = req.body.number;
 
 
+
   if(!userMessage) {
     return res.status(404).send('Must enter message text.')
   }
 
   if(!adminPhoneNumber) {
     return res.status(404).send('Unable to contact user by SMS. Please try email.')
+  }
+
+  if(userMessage.length > 153) {
+    return res.status(404).send('Message must bet 120 characters or under.')
   }
   client.messages
     .create({

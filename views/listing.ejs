@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/show-listings.css" />
 
+
+
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/counter.js"></script>
 
   </head>
 
@@ -26,13 +29,17 @@
       <div class="display-listing">
         <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
         <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
-        <div class="listing-font">
+        <div class="container-listing-description">
+          <div class="listing-font">
           <p><b>Colour:</b> <%= listing.color %></p>
           <p><b>Transmission:</b> <%= listing.transmission %></p>
-          <p><b>Price:</b> $<%= price %></p>
-          <p><b>Description:</b> <%= listing.description %><p>
-        </div>
 
+          <p><b>Description:</b> <%= listing.description %><p>
+          </div>
+          <div>
+        <p class="price-font"><b>Price:</b> $<%= price %></p>
+          </div>
+          </div>
       </div>
 
       <div class="contact-seller-forms">
@@ -46,7 +53,9 @@
 
         <div class="text-seller-form" >
           <h2 class="text-seller-heading">Text The Seller</h2>
-          <p>Send an SMS to <%= listing.name %> by typing a message and then clicking the button below. Please ensure you provide your phone number so they can contact you back.</p>
+          <p>Send an SMS to <%= listing.name %> by typing a message and then clicking the button below.
+            Please ensure you provide your phone number so they can contact you back.
+          You cannot send more then 120 characters.</p>
 
 
             <div>
@@ -70,6 +79,7 @@
                   name="text"
                   placeholder="Message"
                 />
+                <output name="counter" class="countdown" id="max-count">120</output>
               </div>
 
                 <input
@@ -78,7 +88,7 @@
                   value="<%= listing.phone_number %>" />
 
                <div>
-                 <input type="submit" class="btn" value="send" />
+                 <input type="submit" class="sms-button" value="send" />
               </div>
 
             </form>
