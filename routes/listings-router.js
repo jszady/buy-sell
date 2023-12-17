@@ -33,11 +33,11 @@ router.post('/sms', (req, res) => {
 
 
   if(!userMessage) {
-    return res.status(404).send('Must enter message text')
+    return res.status(404).send('Must enter message text.')
   }
 
   if(!adminPhoneNumber) {
-    return res.status(404).send('Unable to contact user by SMS. Please try email')
+    return res.status(404).send('Unable to contact user by SMS. Please try email.')
   }
   client.messages
     .create({
@@ -47,7 +47,7 @@ router.post('/sms', (req, res) => {
    })
    .then((message) => {
     console.log(message.sid)
-    res.render('index')});
+    res.render('delivered')});
    })
 
 
