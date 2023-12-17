@@ -16,7 +16,9 @@ router.get('/:id', (req, res) => {
       if (!listing) {
         return res.status(404).send('Listing not available');
       }
-      const exports = {listing: listing}
+      const prices = listing.price.toLocaleString()
+      console.log(prices)
+      const exports = {listing: listing, price: prices}
       res.render('listing', exports);
     })
     .catch((err) => {
