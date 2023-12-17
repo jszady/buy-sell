@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {showListingByID} = require('../db/displayListingConnection')
-const accountSid = 'ACf54e357f446af426d4bc67a3e1f46b43';
-const authToken = '3c773ec837e85c2aee8e264e44499611';
+const accountSid = 'ACf54e357f446af426d4bc67a3e1f46b4';
+const authToken = 'bcda0289ddd42d289d8f7cd913b7bba';
 //Allows to SMS messaging
 const client = require('twilio')(accountSid, authToken);
 
@@ -28,8 +28,10 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/sms', (req, res) => {
-  const userMessage = req.body.text;
+  const userMessage = `${req.body.text}. My phone number is ${req.body.userNumber}.`;
   const adminPhoneNumber = req.body.number;
+
+
   if(!userMessage) {
     return res.status(404).send('Must enter message text')
   }
