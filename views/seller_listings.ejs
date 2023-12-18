@@ -20,46 +20,47 @@
 
   <body>
     <%- include('header') %>
-    <h1>sold seller</h1>
+    <h1>My Listings</h1>
 
+    <% for (let i = 0; i < listing.length; i++) { %>
     <div class="display-listing">
-      <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
-      <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
+      <h1><%= listing[i].year %> <%= listing[i].brand %> <%= listing[i].make %></h1>
+      <img class="thumbnail" src="<%= listing[i].thumbnail_photo_url %>" >
         <div class="container-listing-description">
           <div class="listing-font">
-            <p><b>Colour:</b> <%= listing.color %></p>
-            <p><b>Transmission:</b> <%= listing.transmission %></p>
-            <p><b>Description:</b> <%= listing.description %><p>
+            <p><b>Colour:</b> <%= listing[i].color %></p>
+            <p><b>Transmission:</b> <%= listing[i].transmission %></p>
+            <p><b>Description:</b> <%= listing[i].description %><p>
               <form method="POST" action="/sold">
                 <input
                     type="hidden"
                     name="id"
-                    value="<%= listing.id %>" />
+                    value="<%= listing[i].id %>" />
 
-              <button type="submit" class="sold-btn">SOLD</button>
+                <button type="submit" class="sold-btn">SOLD</button>
               </form>
               <form method="POST" action="/relist">
                 <input
                     type="hidden"
                     name="id"
-                    value="<%= listing.id %>" />
+                    value="<%= listing[i].id %>" />
 
-              <button type="submit" class="relist-btn">Relist</button>
+                <button type="submit" class="relist-btn">Relist</button>
               </form>
 
           </div>
-            <% if (!sold) { %>
+            <% if (!listing[i].sold) { %>
             <div>
-              <p class="price-font"><b>Price:</b> $<%= price %></p>
+              <p class="price-font"><b>Price:</b> $<%= listing[i].price %></p>
             </div>
             <% } %>
-            <% if (sold) { %>
+            <% if (listing[i].sold) { %>
               <div>
-                <p class="sold-font"><b><%= sold %></b></p>
+                <p class="sold-font"><b><%= listing[i].sold %></b></p>
               </div>
               <% } %>
         </div>
     </div>
-
+    <% } %>
   </body>
 </html>

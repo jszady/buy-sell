@@ -11,5 +11,5 @@ CREATE TABLE listings (
   transmission VARCHAR(255),
   price INTEGER,
   description TEXT,
-  sold VARCHAR(255) DEFAULT NULL
-);
+  sold VARCHAR(255) DEFAULT NULL,
+)

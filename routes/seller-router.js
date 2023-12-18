@@ -18,14 +18,17 @@ router.get('/account', (req, res) => {
       }
 
       //Listing price will now display in local currency style
-      const prices = listing.price.toLocaleString();
-      const sold = listing.sold;
-      console.log(sold);
+      const formattedListings = listing.map((listing) => {
+        return {
+          ...listing,
+          price: listing.price.toLocaleString(),
+        };
+      });
+
+
       const exports = {
-        listing: listing,
-        price: prices,
+        listing: formattedListings,
         user: req.session.user,
-        sold: sold
       };
       res.render("seller_listings", exports);
     })

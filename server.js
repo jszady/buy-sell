@@ -47,10 +47,10 @@ const loginRouter = require("./routes/login-router.js");
 const registerRouter = require("./routes/register-router.js");
 const newListingRouter = require("./routes/newListing-router.js");
 const mainPageRouter = require("./routes/mainPage-router.js");
-const listingsRouter = require("./routes/listings-router.js");
+
 const logoutRouter = require("./routes/logout-router.js"); // Changes made here
 const sellerRouter = require("./routes/seller-router.js"); // Changes made here
-
+const listingsRouter = require("./routes/listings-router.js");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`

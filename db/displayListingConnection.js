@@ -34,9 +34,10 @@ const showListingByUserID = function (userID) {
   return pool
     .query(`SELECT listings.*
     FROM listings
-    WHERE listings.users_id = $1`, [userID])
+    WHERE listings.users_id = $1
+    ORDER BY listings.id`, [userID])
     .then((res) => {
-      return res.rows[0];
+      return res.rows;
     })
     .catch((err) => {
       console.log(err.message);
