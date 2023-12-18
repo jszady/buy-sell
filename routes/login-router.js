@@ -1,36 +1,37 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const { getUserByEmail } = require("../db/queries/getUserByEmail");
+const { loginMatches } = require("../helpers/loginMatches");
 
 router.get("/login", (req, res) => {
   console.log("this is the user:::: ", req.session.user);
-  res.render("login", { user: req.session.user });
+  res.render("login", { user: req.session.user, error: null });
 });
 
-router.post("/login", (req, res) => {
+/*
+  uses async function loginMatches to see if the email and password match the database
+  if not set and error
+  if they match set the cookie
+*/
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  getUserByEmail(email)
-    .then((user) => {
-      if (user) {
-        return bcrypt
-          .compare(password, user.password)
-          .then((isSamePassword) => {
-            if (isSamePassword) {
-              req.session.user = user;
-              res.redirect("/");
-            } else {
-              res.status(401).send("Sorry your password doesnt match");
-            }
-          });
-      } else {
-        res.status(401).send("User doesnt exist");
-      }
-    })
-    .catch((err) => {
-      console.log("There is an error in log in route", err.message);
-      res.status(401).send("error occured in login ");
+  try {
+    const isValid = await loginMatches(email, password);
+    if (!isValid.valid) {
+      res.render("login", {
+        error: isValid.message,
+        user: req.session.user,
+      });
+    }
+    req.session.user = isValid.user;
+    res.redirect("/");
+  } catch (err) {
+    console.log("There is and erorr in login post", err.message);
+    res.render("login", {
+      error: "An error occurred during login.",
+      user: req.session.user || null,
     });
+  }
 });
 
 module.exports = router;

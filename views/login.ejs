@@ -23,6 +23,9 @@
     <div class="main">
       <div class="container">
         <h2>SIGN IN</h2>
+        <% if (error) {%>
+        <div class="error" id="error"><%= error %></div>
+        <%} %>
         <form method="POST" action="/login">
           <input
             type="text"
@@ -46,5 +49,6 @@
         </form>
       </div>
     </div>
+    <script src="scripts/registerErrorMessage.js"></script>
   </body>
 </html>

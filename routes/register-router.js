@@ -1,23 +1,47 @@
 const express = require("express");
 const router = express.Router();
-const helpers = require("../db/queries/addUserToDatabase");
 const { addUserToDatabase } = require("../db/queries/addUserToDatabase");
 const { getUserById } = require("../db/queries/getUserById");
-
-router.get("/register", (req, res) => {
-  res.render("register", { user: req.session.user });
-});
+const { isEmptyFeild } = require("../helpers/isEmptyFeild");
 /*
-  see if the cookie exists (eq.session.userId) redirect to homepage
- line 15
- */
-router.post("/register", (req, res) => {
+  If a user is saved in the cookies that means you are logged in and you cant register
+  If there is no user it will show you the loggin page
+*/
+router.get("/register", (req, res) => {
+  const user = req.session.user;
+  if (user) {
+    return res.redirect("/");
+  }
+  res.render("register", { user: req.session.user, error: null });
+});
+
+/*
+  MUST BE ASYNC BECAUSE WHEN LOOKING UP THINGS IN A DATABASE IS A ASYNC OPERATION
+  this will get the infromation from the register form
+  if any of the fields are empty it will give the appropriate message
+  if all info is good
+  it will add the user to the database and return the user id
+  then we get the user with that id and set the cookie
+*/
+router.post("/register", async (req, res) => {
   const { name, email, password, city, phone_number } = req.body;
 
-  if (!name || !email || !password || !city || !phone_number) {
-    return res.status(400).send("No register feild can be empty");
+  const errorMessage = await isEmptyFeild({
+    name,
+    email,
+    password,
+    city,
+    phone_number,
+  });
+
+  if (errorMessage) {
+    return res.render("register", {
+      error: errorMessage,
+      user: req.session.user,
+    });
   }
-  addUserToDatabase(name, email, password, city, password)
+
+  addUserToDatabase(name, email, password, city, phone_number)
     .then((newUserId) => {
       return getUserById(newUserId);
     })

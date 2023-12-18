@@ -23,6 +23,9 @@
     <div class="main">
       <div class="container">
         <h2>Register</h2>
+        <% if (error) {%>
+        <div class="error" id="error"><%= error %></div>
+        <%} %>
         <form method="POST" action="/register">
           <input
             type="text"
@@ -33,7 +36,6 @@
           />
           <input
             type="email"
-            name="email"
             id="email"
             class="form-input"
             name="email"
@@ -48,7 +50,6 @@
           />
           <input
             type="text"
-            name="city"
             id="city"
             class="form-input"
             name="city"
@@ -71,5 +72,6 @@
         </form>
       </div>
     </div>
+    <script src="scripts/registerErrorMessage.js"></script>
   </body>
 </html>
