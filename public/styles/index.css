@@ -1,0 +1,30 @@
+main{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  margin: 20px;
+}
+
+img{
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.listing{
+  display: flex;
+  border: 4px solid black;
+  margin: 50px;
+}
+
+.listingLeftSide {
+  width: 50%;
+  margin: 15px;
+}
+
+.imageContainer {
+  width: 50%;
+}
