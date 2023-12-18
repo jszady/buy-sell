@@ -36,7 +36,12 @@
               <p><b>Description:</b> <%= listing.description %><p>
             </div>
               <div>
+                <% if (!sold) { %>
                 <p class="price-font"><b>Price:</b> $<%= price %></p>
+                <% } %>
+                <% if (sold) { %>
+                  <p class="sold-font"><b><%= sold %></b></p>
+                  <% } %>
               </div>
           </div>
       </div>

@@ -20,39 +20,54 @@
 
   <body>
     <%- include('header') %>
-    <h1>sold seller</h1>
+    <h1>My Listings</h1>
 
+    <div class="sellers-cars">
+     <% if(listing.length === 0) { %>
+
+      <p>You currently have not listed a car. Please click create post to list!</p>
+      <% } else { %>
+
+    <% for (let i = 0; i < listing.length; i++) { %>
     <div class="display-listing">
-      <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
-      <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
-        <div class="container-listing-description">
-          <div class="listing-font">
-            <p><b>Colour:</b> <%= listing.color %></p>
-            <p><b>Transmission:</b> <%= listing.transmission %></p>
-            <p><b>Description:</b> <%= listing.description %><p>
+
+      <h1><%= listing[i].year %> <%= listing[i].brand %> <%= listing[i].make %></h1>
+      <img class="car-thumbnail" src="<%= listing[i].thumbnail_photo_url %>" >
+
+            <div class="action-buttons">
               <form method="POST" action="/sold">
                 <input
                     type="hidden"
                     name="id"
-                    value="<%= listing.id %>" />
+                    value="<%= listing[i].id %>" />
 
-              <button type="submit" class="sold-btn">SOLD</button>
+                <button type="submit" class="sold-btn">Sold</button>
               </form>
               <form method="POST" action="/relist">
                 <input
                     type="hidden"
                     name="id"
-                    value="<%= listing.id %>" />
+                    value="<%= listing[i].id %>" />
 
-              <button type="submit" class="relist-btn">Relist</button>
+                <button type="submit" class="relist-btn">Relist</button>
               </form>
-
-          </div>
-            <div>
-              <p class="price-font"><b>Price:</b> $<%= price %></p>
             </div>
-        </div>
-    </div>
 
+            <% if (!listing[i].sold) { %>
+            <div>
+              <p class="price-font"><b>Price:</b> $<%= listing[i].price %></p>
+            </div>
+            <% } %>
+            <% if (listing[i].sold) { %>
+              <div>
+                <p class="sold-font"><b><%= listing[i].sold %></b></p>
+              </div>
+
+              <% } %>
+              
+    </div>
+    <% } %>
+    <% } %>
+  </div>
   </body>
 </html>

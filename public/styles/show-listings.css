@@ -149,6 +149,11 @@
   font-size: x-large;
 }
 
+.sold-font {
+  font-size: x-large;
+  color: red;
+}
+
 
 /*Container that holds are the listing details*/
 .container-listing-description{

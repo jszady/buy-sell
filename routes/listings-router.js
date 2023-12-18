@@ -19,11 +19,13 @@ router.get("/:id", (req, res) => {
 
       //Listing price will now display in local currency style
       const prices = listing.price.toLocaleString();
-
+      //Gives sold its own value
+      const sold = listing.sold;
       const exports = {
         listing: listing,
         price: prices,
         user: req.session.user,
+        sold: sold
       };
       res.render("listing", exports);
     })
