@@ -48,9 +48,16 @@
               </form>
 
           </div>
+            <% if (!sold) { %>
             <div>
               <p class="price-font"><b>Price:</b> $<%= price %></p>
             </div>
+            <% } %>
+            <% if (sold) { %>
+              <div>
+                <p class="sold-font"><b><%= sold %></b></p>
+              </div>
+              <% } %>
         </div>
     </div>
 
