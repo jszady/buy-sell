@@ -14,16 +14,18 @@ router.get('/account', (req, res) => {
   showListingByUserID(userID)
     .then((listing) => {
       if (!listing) {
-        return res.status(404).send("User not logged in");
+        return res.status(404).send("User has not created any listings");
       }
 
       //Listing price will now display in local currency style
       const prices = listing.price.toLocaleString();
-
+      const sold = listing.sold;
+      console.log(sold);
       const exports = {
         listing: listing,
         price: prices,
         user: req.session.user,
+        sold: sold
       };
       res.render("seller_listings", exports);
     })

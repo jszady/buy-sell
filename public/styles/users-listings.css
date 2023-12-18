@@ -23,6 +23,11 @@
   font-size: x-large;
 }
 
+.sold-font {
+  font-size: xx-large;
+  color: red;
+}
+
 
 /*Container that holds are the listing details*/
 .container-listing-description{
