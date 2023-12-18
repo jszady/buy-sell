@@ -25,39 +25,39 @@
     </header>
     <main>
       <h1>Listings</h1>
-      <form action="/">
+      <form action="/" method="POST">
         <label for="">Filter Listings by:</label>
-        <input type="name" />
-        <input type="Brand" />
-        <input type="Make" />
-        <input type="Year" />
+        <input type="text" name="brand" placeholder="Enter a brand name" />
+        <input type="text" name="price" placeholder="Enter a price" />
+        <button type="submit">Search</button>
       </form>
       <div class="listings">
+        <%if (typeof errorMessage != "undefined") { %>
+        <div style="color: red">You need to be logged in</div>
+        <% } else { %> <% for (row of rows) { %>
         <div class="listing">
-          <div class="listingLeftSide">
-            <div class="upperLeftSide">
-              <div class="imageContainer">
-                <img src="https://i.ibb.co/HgFHx7p/poke.jpg" />
-              </div>
-              <div class="listingRightSide">
-                <p>
-                  Make: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Est explicabo reiciendis asper
-                </p>
-                <p>Year:</p>
-                <p>Price:</p>
-              </div>
+          <div class="upperLeftSide">
+            <div class="imageContainer">
+              <img src="<%= row.thumbnail_photo_url %>" />
             </div>
-            <div class="lowerLeftSide">
+            <div class="upperRightSide">
               <p>
-                Description: Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit. Voluptate id fuga rem sed minima harum eius explicabo,
-                assumenda doloremque officiis soluta accusantium beatae quis,
-                iusto perspiciatis corrupti eum velit fugiat.
+                Brand: <%= row.brand %>
               </p>
+              <p>Year: <%= row.year %></p>
+              <p>Price: <%= row.price %></p>
             </div>
           </div>
+          <div class="lowerLeftSide">
+            <p>
+              Description: Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit. Voluptate id fuga rem sed minima harum eius explicabo,
+              assumenda doloremque officiis soluta accusantium beatae quis,
+              iusto perspiciatis corrupti eum velit fugiat.
+            </p>
+          </div>
         </div>
+        <% } %> <% } %>
       </div>
     </main>
     <footer></footer>

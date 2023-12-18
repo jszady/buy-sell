@@ -1,4 +1,4 @@
-main{
+main {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -8,23 +8,40 @@ form {
   margin: 20px;
 }
 
-img{
+img {
   display: block;
   height: auto;
   width: 100%;
 }
 
-.listing{
+.listings {
   display: flex;
-  border: 4px solid black;
-  margin: 50px;
+  flex-wrap: wrap;
 }
 
-.listingLeftSide {
+.listing {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid black;
+  border-radius: 5px;
+  margin: 50px;
+  padding: 10px;
   width: 50%;
-  margin: 15px;
+}
+
+.rowOfListings{
+  display: flex;
+}
+
+.upperRightSide{
+  margin-right: 10px;
+}
+
+.upperLeftSide{
+  display: flex;
 }
 
 .imageContainer {
   width: 50%;
+  margin-right: 10px;
 }
