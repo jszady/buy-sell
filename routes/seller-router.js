@@ -18,8 +18,7 @@ router.get("/account", (req, res) => {
       //Listing price will now display in local currency style
       const formattedListings = listing.map((listing) => {
         return {
-          ...listing,
-          price: listing.price.toLocaleString(),
+          ...listing,          price: listing.price.toLocaleString(),
         };
       });
 
