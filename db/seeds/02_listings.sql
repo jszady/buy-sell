@@ -7,3 +7,7 @@ VALUES
 
 
 
+
+('https://images.trailbuiltoffroad.com/web-compressed/1363872-1-2000-ranger-ford-wulf-s-suspension-lift-3in-black-rock-d-widow-black.jpg', 4, 'Ford', 'Ranger', '2000', 'Black', 'Manual', 9000, 'Sold as is. Still runs great.');
+('https://uploads.builtforbackroads.com/uploads/2022/12/2022.12.01-SUBARU-FORESTER-2005_1.jpg', 4, 'Subaru', 'Forester', '2006', 'Red', 'Automatic', 5000, 'Needs some work.');
+('https://i.pinimg.com/474x/4b/6c/13/4b6c13a26d33c15ad5336da14c45c4ac.jpg', 4, 'Mazda', 'MAZDA3', '2005', 'Blue', 'Manual', 4500, 'Reliable vehicle with low kms');

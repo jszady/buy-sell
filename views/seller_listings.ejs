@@ -23,6 +23,10 @@
     <h1>My Listings</h1>
 
     <div class="sellers-cars">
+     <% if(listing.length === 0) { %>
+
+      <p>You currently have not listed a car. Please click create post to list!</p>
+      <% } else { %>
 
     <% for (let i = 0; i < listing.length; i++) { %>
     <div class="display-listing">
@@ -58,10 +62,11 @@
               <div>
                 <p class="sold-font"><b><%= listing[i].sold %></b></p>
               </div>
-            </div>
-              <% } %>
 
+              <% } %>
+              
     </div>
+    <% } %>
     <% } %>
   </div>
   </body>
