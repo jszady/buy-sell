@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
 
   console.log('test')
   req.session = null;
