@@ -15,7 +15,7 @@ const insertListing = (listingInfo) => {
       ($1, $2, $3, $4, $5, $6, $7, $8);`,
       [
         3, // user_id will need to be included in the top from the logged in user data
-        listingInfo.brand, 
+        listingInfo.brand,
         listingInfo.make,
         listingInfo.year,
         listingInfo.color,

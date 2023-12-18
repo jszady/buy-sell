@@ -17,6 +17,7 @@
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/users.js"></script>
+    <script type="text/javascript" src="/scripts/price.js"></script>
   </head>
 
   <body>
@@ -55,8 +56,25 @@
 
                 <button type="submit" class="relist-btn">Relist</button>
               </form>
-            </div>
 
+              <button type="submit" class="price-btn">Change Price</button>
+            </div>
+            <div class="edit-price">
+            <form method="POST" action="/price">
+              <input class="edit-price-textarea"
+              type="number"
+              id="price"
+              name="price"
+
+              placeholder="New Price"
+            />
+            <input
+            type="hidden"
+            name="id"
+            value="<%= listing[i].id %>"/>
+            <input type="submit" class="sms-button" value="Submit" />
+            </form>
+          </div>
             <% if (!listing[i].sold) { %>
             <div>
               <p class="price-font"><b>Price:</b> $<%= listing[i].price %></p>

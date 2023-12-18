@@ -5,6 +5,7 @@ const {
   changeItemToSoldInDatabase,
   relistItemInDatabase,
 } = require("../db/markItemAsSoldConnection");
+const {editPriceOfListing} = require("../db/editPriceConnection")
 
 router.get("/account", (req, res) => {
   const userID = req.session.user.id;
@@ -60,5 +61,26 @@ router.post("/relist", (req, res) => {
       return err;
     });
 });
+
+router.post("/price", (req, res) => {
+  const listingId = req.body.id;
+  const price = parseFloat(req.body.price);
+
+
+  if(isNaN(price)) {
+    return res.status(404).send('Please input valid number');
+  }
+
+  editPriceOfListing(price, listingId)
+    .then((messgae) => {
+      console.log(messgae);
+      res.redirect("account");
+    })
+    .catch((err) => {
+      console.log(err);
+      return err;
+    })
+
+})
 
 module.exports = router;
