@@ -6,8 +6,10 @@ const {
   relistItemInDatabase,
 } = require("../db/markItemAsSoldConnection");
 
-router.get("/account", (req, res) => {
-  const userID = 2;
+
+router.get('/account', (req, res) => {
+
+  const userID = req.session.user.id;
   //Populates data from listings table base on id input in URL
   showListingByUserID(userID)
     .then((listing) => {

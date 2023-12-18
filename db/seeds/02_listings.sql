@@ -6,3 +6,4 @@ VALUES
   ('https://i.ytimg.com/vi/eFWUQc-wDzI/maxresdefault.jpg', 3, 'Ford', 'Mustang', '2022', 'Black', 'Automatic', 30000, 'Brand new, never used');
 
 
+
