@@ -64,8 +64,18 @@ router.get("/:id", (req, res) => {
       })
       .then((message) => {
         console.log(message.sid);
-        res.render("delivered");
-      });
+        const exports = {
+
+
+          user: req.session.user
+
+        };
+        res.render("delivered", exports);
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(404).send("Unable to contact seller by SMS. Please try");
+      })
   });
 });
 
