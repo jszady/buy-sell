@@ -19,6 +19,7 @@
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/counter.js"></script>
+    <script src="/scripts/carousel.js" defer></script>
 
   </head>
 
@@ -28,7 +29,23 @@
     <div class="display-page" >
       <div class="display-listing">
         <h1><%= listing.year %> <%= listing.brand %> <%= listing.make %></h1>
-        <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>" >
+        <section>
+          <div class="carousel" data-carousel>
+              <button class="carousel-button prev" >&#8678;</button>
+              <button class="carousel-button next" >&#8680;</button>
+            <ul data-slides>
+              <li class="slide" data-active>
+                <img class="thumbnail" src="<%= listing.thumbnail_photo_url %>">
+              </li>
+              <li class="slide">
+                <img class="thumbnail" src="https://cdn.jdpower.com/Average%20Weight%20Of%20A%20Car.jpg" >
+              </li>
+              <li class="slide">
+                <img class="thumbnail" src="https://carconfigurator.ferrari.com/rt-assets/data/cars/sf90spider/ui/splashpage.jpg">
+              </li>
+            </ul>
+        </div>
+        </section>
           <div class="container-listing-description">
             <div class="listing-font">
               <p><b>Colour:</b> <%= listing.color %></p>
