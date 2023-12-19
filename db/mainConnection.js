@@ -27,7 +27,7 @@ const getListing = (filter) => {
   if (conditions.length > 0) {
     queryString += ' WHERE ' + conditions.join(' AND ') + ';';
   }
-
+  
   return db.query(queryString,queryParams)
     .then((result) => {
       const user = result.rows;
