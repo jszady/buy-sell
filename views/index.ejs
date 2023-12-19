@@ -50,7 +50,9 @@
                 <p>Year: <%= row.year %></p>
                 <h2>Price: $<%= row.price %></h2>
               </div>
-              <p class="viewListing">Click here to view!</p>
+              <form method="GET" action="/<%= row.id %>">
+              <input  class="viewListing" type="submit" value="Click here to view!"/>
+            </form>
             </div>
           </div>
           <div class="lowerLeftSide">
