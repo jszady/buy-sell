@@ -1,19 +1,15 @@
-const { Pool } = require("pg");
+const { db } = require("./connection");
 
-const pool = new Pool({
-  user: "vagrant",
-  password: "123",
-  host: "localhost",
-  database: "midterm",
-});
 
+// This function inserts a new row into the listings table depending on what the user entered
 const insertListing = (listingInfo) => {
-  return pool
+  return db
     .query(
-      `INSERT INTO listings (users_id, brand, make, year, color, transmission, price, description)
+      `INSERT INTO listings (thumbnail_photo_url, users_id, brand, make, year, color, transmission, price, description)
     VALUES
-      ($1, $2, $3, $4, $5, $6, $7, $8);`,
+      ($1, $2, $3, $4, $5, $6, $7, $8, $9);`,
       [
+        listingInfo.image,
         3, // user_id will need to be included in the top from the logged in user data
         listingInfo.brand,
         listingInfo.make,
