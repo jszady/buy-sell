@@ -6,9 +6,8 @@ const { getListing, getAllListings } = require("../db/mainConnection");
 router.get("/", (req, res) => {
   getAllListings().then((response) => {
     const data = response;
-    const user = req.session.user;;
     const templateVars = {
-      user: user,
+      user: req.session.user,
       rows: data,
       image: data.thumbnail_photo_url,
     };
@@ -19,6 +18,7 @@ router.get("/", (req, res) => {
 
 // The POST for the filters on the home page
 router.post("/", (req, res) => {
+
   // The input from the filter option on the page
   const input = {
     brand: req.body.brand,
@@ -29,7 +29,8 @@ router.post("/", (req, res) => {
   getListing(input).then((response) => {
     const data = response;
     const templateVars = {
-      rows: data,
+      user: req.session.user,
+      rows: data
     };
     res.render("index", templateVars);
   });

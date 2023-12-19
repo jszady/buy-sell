@@ -12,7 +12,6 @@ h2 {
   text-align: center;
 }
 
-
 img {
   display: block;
   height: auto;
@@ -35,6 +34,12 @@ img {
   margin: 20px;
   padding: 10px;
   width: 30%;
+  transition: 1s;
+}
+
+.listing:hover{
+  width: 400px;
+  background-color: grey;
 }
 
 .upperRightSide {
@@ -49,6 +54,9 @@ img {
 
 .imageContainer {
   margin-right: 10px;
+  margin-left: 10px;
+  box-shadow: 5px 5px grey;
+  border: 3px solid black;
 }
 
 .viewListing {
@@ -62,6 +70,6 @@ img {
   height: 40px;
 }
 
-.viewListing:hover{
+.viewListing:hover {
   background-color: red;
 }
