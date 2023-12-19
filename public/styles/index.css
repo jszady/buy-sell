@@ -10,6 +10,7 @@ form {
 
 h2 {
   text-align: center;
+  margin: auto;
 }
 
 img {
@@ -37,8 +38,14 @@ img {
   transition: 1s;
 }
 
+.listingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .listing:hover{
-  width: 400px;
+  transform: scale(1.15);
   background-color: grey;
 }
 
@@ -57,6 +64,11 @@ img {
   margin-left: 10px;
   box-shadow: 5px 5px grey;
   border: 3px solid black;
+  transition: 1s;
+}
+
+.imageContainer:hover{
+  /* width: 80%; */
 }
 
 .viewListing {
@@ -72,4 +84,12 @@ img {
 
 .viewListing:hover {
   background-color: red;
+}
+
+.fa-star{
+  transition: 1s;
+}
+
+.fa-star:hover{
+  transition: transform 0.8s;
 }
