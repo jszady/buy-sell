@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { showListingByID } = require("../db/displayListingConnection");
-const accountSid = "ACf54e357f446af426d4bc67a3e1f46b4";
-const authToken = "bcda0289ddd42d289d8f7cd913b7bba";
+const accountSid = "ACf54e357f446af426d4bc67a3e1f46b43";
+const authToken = "bcda0289ddd42d289d8f7cd913b7bbae";
 //Allows to SMS messaging
 const client = require("twilio")(accountSid, authToken);
 
