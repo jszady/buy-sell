@@ -5,12 +5,14 @@
     <!-- User is logged in -->
     <li><span>Welcome, <%= user.email %></span></li>
     <li><a href="/">Home</a></li>
+    <li><a href="/featured">Featured</a></li>
     <li><a href="/logout">Logout</a></li>
     <li><a href="/account">View Listing</a></li>
     <li><a href="/newListing" class="btn">Create Post</a></li>
     <% } else { %>
     <!-- No user logged in -->
     <li><a href="/">Home</a></li>
+    <li><a href="/featured">Featured</a></li>
     <li><a href="/login">Login</a></li>
     <li><a href="/register">Register</a></li>
     <% } %>
