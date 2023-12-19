@@ -7,10 +7,12 @@ router.get("/newlisting", (req, res) => {
 });
 
 router.post("/newlisting", (req, res) => {
-
+  const userID = req.session.user.id
     // Still need to get the cookie data for the user_id
     const data = {
       image: req.body.image,
+      image2: req.body.image2,
+      image3: req.body.image3,
       brand: req.body.brand,
       make: req.body.make,
       year: req.body.year,
@@ -19,11 +21,12 @@ router.post("/newlisting", (req, res) => {
       price: req.body.price,
       description: req.body.description
     };
+
     console.log(data);
-    insertListing(data).then((response) => {
+    insertListing(data, userID).then((response) => {
       console.log(response);
     });
-     
+
   res.redirect("/newlisting");
 });
 
