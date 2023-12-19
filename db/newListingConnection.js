@@ -1,5 +1,7 @@
 const { db } = require("./connection");
 
+
+// This function inserts a new row into the listings table depending on what the user entered
 const insertListing = (listingInfo) => {
   return db
     .query(

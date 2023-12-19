@@ -26,26 +26,31 @@
     <main>
       <h1>Listings</h1>
       <form action="/" method="POST">
-        <label for="">Filter Listings by:</label>
+        <label for="brand">Filter Listings by:</label>
         <input type="text" name="brand" placeholder="Enter a brand name" />
-        <input type="text" name="price" placeholder="Enter a price" />
+        <label for="">Select a price range:</label>
+        <input type="text" name="minPrice" placeholder="Enter a minimum price" />
+        <input type="text" name="maxPrice" placeholder="Enter a maximum price" />
         <button type="submit">Search</button>
       </form>
       <div class="listings">
         <%if (typeof errorMessage != "undefined") { %>
-        <div style="color: red">You need to be logged in</div>
+        <div style="color: red">Error listing info does not exist</div>
         <% } else { %> <% for (row of rows) { %>
         <div class="listing">
+          <h2><%= row.brand %></h2>
           <div class="upperLeftSide">
             <div class="imageContainer">
               <img src="<%= row.thumbnail_photo_url %>" />
             </div>
-            <div class="upperRightSide">
-              <p>
-                Brand: <%= row.brand %>
-              </p>
-              <p>Year: <%= row.year %></p>
-              <p>Price: <%= row.price %></p>
+            <!-- <div class="upperRightSide">
+            </div> -->
+            <div class="middleOfListing">
+              <div class="leftSideMiddleOfListing">
+                <p>Year: <%= row.year %></p>
+                <h2>Price: $<%= row.price %></h2>
+              </div>
+              <p class="viewListing">Click here to view!</p>
             </div>
           </div>
           <div class="lowerLeftSide">
