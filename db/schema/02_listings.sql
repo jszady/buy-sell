@@ -4,6 +4,8 @@ CREATE TABLE listings (
   id SERIAL PRIMARY KEY NOT NULL,
   thumbnail_photo_url VARCHAR(255) NOT NULL,
   users_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  image_2 VARCHAR(255) NOT NULL,
+  image_3 VARCHAR(255) NOT NULL,
   brand VARCHAR(255),
   make VARCHAR(32),
   year VARCHAR(255),
