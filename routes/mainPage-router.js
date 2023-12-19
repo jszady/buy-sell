@@ -6,7 +6,9 @@ const { getListing, getAllListings } = require("../db/mainConnection");
 router.get("/", (req, res) => {
   getAllListings().then((response) => {
     const data = response;
+    const user = req.session.user;;
     const templateVars = {
+      user: user,
       rows: data,
       image: data.thumbnail_photo_url,
     };
