@@ -10,9 +10,11 @@
 }
 
 .car-thumbnail {
-    width: 70%;
+    width: 400px;
+    height: 250px;
     object-fit: cover;
 }
+
 
 /* Style for the sold-stamp image */
 .sold-stamp {
@@ -67,7 +69,17 @@
   display: inline-block;
   margin: 15px;
 }
+.sold-btn:hover{
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
 
+.relist-btn:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+.price-btn:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
 .relist-btn {
   padding: 5px 15px;
   background-color: #3498db;
