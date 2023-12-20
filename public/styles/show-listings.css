@@ -5,6 +5,8 @@
   align-items: center;
 }
 
+
+/*container for the photo carousel*/
 .carousel {
   width: 100%;
   height: 600px;
@@ -12,6 +14,8 @@
   overflow: hidden;
 }
 
+
+/*Slide container for images*/
 .slide {
   position: absolute;
   top: 0;
@@ -21,6 +25,8 @@
   opacity: 0;
 }
 
+
+/*Actual image*/
 .slide img {
   width: 100%;
   height: 600px;
@@ -29,11 +35,14 @@
 
 }
 
+
+/*Currently active slide that user is viewing*/
 .slide[data-active] {
   opacity: 1;
 }
 
 
+/*The prev and next buttons for viewing images*/
 .carousel-button {
   position: absolute;
   z-index: 2;
@@ -46,21 +55,23 @@
   border-radius: .30rem;
 }
 
+
+/*Moves the prev button to the left*/
 .carousel-button.prev {
   left: 0rem;
 }
 
+
+/*Moves the next button to the right*/
 .carousel-button.next {
   right: 0rem;
 }
+
+
+/*On hover the next and prev buttons get brighter*/
 .carousel-button:hover {
   color: white;
 }
-/*For photo thumbnail on listing details page
-.thumbnail {
-  height: 30em;
-  border: black 2px solid;
-}*/
 
 
 /*href for user to send email*/
@@ -78,6 +89,7 @@
 }
 
 
+/*Container holding the lsiting photo and details*/
 .display-listing {
   display: flex;
   flex-direction: column;
@@ -138,6 +150,8 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+/*On hover the send email button will get box shadow*/
 .mailto-button:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
@@ -182,6 +196,8 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+/*On hover the send SMS button will get box shadow*/
 .sms-button:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
@@ -205,6 +221,8 @@
   font-size: x-large;
 }
 
+
+/*Sold font will be red*/
 .sold-font {
   font-size: x-large;
   color: red;

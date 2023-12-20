@@ -1,14 +1,17 @@
-
+/*Container for all of the page*/
 .sellers-cars {
   display: flex;
   flex-wrap: wrap;
-
 }
 
+
+/*Sold relist and edit price buttons*/
 .action-buttons {
   display: flex;
 }
 
+
+/*The thumbnail image of the listing*/
 .car-thumbnail {
     width: 400px;
     height: 250px;
@@ -25,6 +28,7 @@
   z-index: 1;
   height: 15%;
 }
+
 
 /*The container that displays the listing details*/
 .display-listing {
@@ -43,11 +47,11 @@
 }
 
 
-
 /*listing price font*/
 .price-font {
   font-size: x-large;
 }
+
 
 /*Font for sold cars */
 .sold-font {
@@ -55,6 +59,8 @@
   color: red;
 }
 
+
+/*Sold button stylings*/
 .sold-btn {
   padding: 5px 15px;
   background-color: #db3434;
@@ -69,17 +75,27 @@
   display: inline-block;
   margin: 15px;
 }
+
+
+/*On hover the sold button will get a box shadow*/
 .sold-btn:hover{
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
 
+
+/*On hover the relist button will get a box shadow*/
 .relist-btn:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
 
+
+/*On hover the price button will get a box shadow*/
 .price-btn:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
+
+
+/*Stylings for relist button*/
 .relist-btn {
   padding: 5px 15px;
   background-color: #3498db;
@@ -95,6 +111,8 @@
   margin: 15px;
 }
 
+
+/*stylings for edit price button*/
 .price-btn {
   padding: 5px 15px;
   background-color: #3498db;

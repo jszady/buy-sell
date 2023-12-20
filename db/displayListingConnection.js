@@ -21,7 +21,9 @@ const showListingByID = function (id) {
 };
 
 
+//Function to show listings created my specific users user for sellers to view their listings.
 const showListingByUserID = function (userID) {
+  //Pulls all listing details where the users_id foreign key has a listing id.
   return database.db
     .query(`SELECT listings.*
     FROM listings
