@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/newListing.css" />
-  
+
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
@@ -24,33 +24,41 @@
     <%- include('header') %>
     <h1>New Listing</h1>
     <main>
+      <div class="container">
+        <form action="/newlisting" method="POST">
+          <div>
+          <% if (error) {%>
+            <div class="error" id="error"><%= error %></div>
+            <%} %>
 
-      <form action="/newlisting" method="POST">
-        <% if (error) {%>
-          <div class="error" id="error"><%= error %></div>
-          <%} %>
-            <label for="image">Thumbnail Photo:</label>
-            <input type="text" name="image" placeholder="Please enter the Image URL">
-            <label for="image">Second Photo:</label>
-            <input type="text" name="image2" placeholder="Please enter the Image URL">
-            <label for="image">Third Photo:</label>
-            <input type="text" name="image3" placeholder="Please enter the Image URL">
-            <label for="brand">Brand:</label>
-            <input type="text" name="brand" placeholder="Please enter the Brand"/>
-            <label for="make">Make:</label>
-            <input type="text" name="make" placeholder="Please enter the Make"/>
-            <label for="year">Year:</label>
-            <input type="text" name="year" placeholder="Please enter the Year"/>
-            <label for="color">Color:</label>
-            <input type="text" name="color" placeholder="Please enter the Colour"/>
-            <label for="transmission">Transmission:</label>
-            <input type="text" name="transmission" placeholder="Please enter the Transmission"/>
-            <label for="price">Price:</label>
-            <input type="number" name="price" placeholder="Please enter the Price"/>
-            <label for="description">Description:</label>
-            <textarea type="textarea" name="description" placeholder="Please enter the description" rows="6"></textarea>
-            <button type="submit">Submit Listing</button>
+              <label for="brand">Brand:</label>
+              <input type="text" name="brand" placeholder="Please enter the Brand"/>
+              <label for="make">Make:</label>
+              <input type="text" name="make" placeholder="Please enter the Make"/>
+              <label for="year">Year:</label>
+              <input type="text" name="year" placeholder="Please enter the Year"/>
+              <label for="color">Color:</label>
+              <input type="text" name="color" placeholder="Please enter the Colour"/>
+              <label for="transmission">Transmission:</label>
+              <input type="text" name="transmission" placeholder="Please enter the Transmission"/>
+              <label for="price">Price:</label>
+              <input type="number" name="price" placeholder="Please enter the Price"/>
+            </div>
+            <div class="description-and-submit">
+              <label for="image">Thumbnail Photo:</label>
+              <input type="text" name="image" placeholder="Please enter the Image URL">
+              <label for="image">Second Photo:</label>
+              <input type="text" name="image2" placeholder="Please enter the Image URL">
+              <label for="image">Third Photo:</label>
+              <input type="text" name="image3" placeholder="Please enter the Image URL">
+              <label for="description">Description:</label>
+              <textarea type="textarea" name="description" placeholder="Please enter the description" rows="10"></textarea>
+              <div class="submit-button-container">
+              <button type="submit">Submit Listing</button>
+            </div>
+          </div>
       </form>
+    </div>
       <script src="scripts/registerErrorMessage.js"></script>
     </main>
   </body>
