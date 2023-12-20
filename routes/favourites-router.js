@@ -2,23 +2,6 @@ const express = require("express");
 const { db } = require("../db/connection");
 const router = express.Router();
 
-const getListingId = (userID) => {
-  return db
-    .query(
-      `SELECT id FROM listings;`,
-      []
-    )
-    .then((result) => {
-      const user = result.rows;
-      console.log('testing');
-      console.log(user); // you stopped here where this is null, you might have to do a JOIN here and you gotta check somewhere if they already have it favourited
-      return user || null;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
-
 const addFavourite = (userId, listingId) => {
   return db
     .query(

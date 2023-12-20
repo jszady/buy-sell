@@ -94,9 +94,10 @@
             <form method="POST" action="/favourites">
               <button class="iconButton" type="submit">
                 <% if (user) {%>
+                <% if (!row.favourited) { %>
                   <input name="id" value="<%=row.id%>">
                 <i class="fa-regular fa-star"></i>
-                <% if (false) { %>
+                <% } else { %>
                 <i class="fa-solid fa-star"></i>
                 <% } }%>
               </button>
