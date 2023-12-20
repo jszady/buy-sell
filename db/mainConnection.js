@@ -5,8 +5,7 @@ const getListing = (filter) => {
   // Declaring the parameters for the statement, the conditions to be joined together later and the querystring that will hold the finished statement
   const queryParams = [];
   const conditions = [];
-  let queryString =
-    "SELECT id, thumbnail_photo_url, year, brand, color, price, description, featured FROM listings";
+  let queryString = 'SELECT id, thumbnail_photo_url, year, brand, color, price, description, sold FROM listings';
 
   // If any of these exist they get added to the parameters and the condition statemetn at the end
 
@@ -33,8 +32,12 @@ const getListing = (filter) => {
     queryString += " WHERE " + conditions.join(" AND ") + ";";
   }
 
+<<<<<<< HEAD
   return db
     .query(queryString, queryParams)
+=======
+  return db.query(queryString,queryParams)
+>>>>>>> features/markItemsAsSold
     .then((result) => {
       const user = result.rows;
       return user || null;
@@ -57,4 +60,8 @@ const getAllListings = () => {
     });
 };
 
+<<<<<<< HEAD
 module.exports = { getListing, getAllListings };
+=======
+module.exports = {getListing, getAllListings};
+>>>>>>> features/markItemsAsSold

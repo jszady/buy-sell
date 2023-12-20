@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/index.css" />
+  
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
@@ -103,7 +104,13 @@
           </div>
           <div class="upperLeftSide">
             <div class="imageContainer">
+              <% if (row.sold) { %>
               <img src="<%= row.thumbnail_photo_url %>" />
+              <img class="sold-stamp" src="/images/sold4.jpeg">
+                <% } else { %>
+              <img src="<%= row.thumbnail_photo_url %>" />
+
+              <% } %>
             </div>
             <!-- <div class="upperRightSide">
             </div> -->
