@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
     //Gets the phone number of the listing owner
     const adminPhoneNumber = req.body.number;
 
-    //Errror handling
+    //Error handling
     if (!userMessage) {
       return res.status(404).send("Must enter message text.");
     }

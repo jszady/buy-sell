@@ -32,12 +32,8 @@ const getListing = (filter) => {
     queryString += " WHERE " + conditions.join(" AND ") + ";";
   }
 
-<<<<<<< HEAD
   return db
     .query(queryString, queryParams)
-=======
-  return db.query(queryString,queryParams)
->>>>>>> features/markItemsAsSold
     .then((result) => {
       const user = result.rows;
       return user || null;
@@ -60,8 +56,4 @@ const getAllListings = () => {
     });
 };
 
-<<<<<<< HEAD
 module.exports = { getListing, getAllListings };
-=======
-module.exports = {getListing, getAllListings};
->>>>>>> features/markItemsAsSold
