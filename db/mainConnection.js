@@ -5,13 +5,13 @@ const getListing = (filter) => {
   // Declaring the parameters for the statement, the conditions to be joined together later and the querystring that will hold the finished statement
   const queryParams = [];
   const conditions = [];
-  let queryString = 'SELECT id, thumbnail_photo_url, year, brand, color, price, description FROM listings';
-  
+  let queryString = 'SELECT id, thumbnail_photo_url, year, brand, color, price, description, sold FROM listings';
+
   // If any of these exist they get added to the parameters and the condition statemetn at the end
   if (filter.brand){
     queryParams.push(`%${filter.brand}%`);
     conditions.push(`brand LIKE $${queryParams.length}`);
-  } 
+  }
 
   if (filter.minPrice){
     queryParams.push(`${filter.minPrice}`);
@@ -27,7 +27,7 @@ const getListing = (filter) => {
   if (conditions.length > 0) {
     queryString += ' WHERE ' + conditions.join(' AND ') + ';';
   }
-  
+
   return db.query(queryString,queryParams)
     .then((result) => {
       const user = result.rows;
