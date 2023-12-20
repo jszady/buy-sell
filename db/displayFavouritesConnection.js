@@ -6,7 +6,7 @@ const database = require("./connection");
 const showFavouritesByUserID = function (id) {
 
   return database.db
-    .query(`SELECT listings.*
+    .query(`SELECT listings.*, favourites.id as favId
     FROM favourites
     JOIN listings ON favourites.listing_id = listings.id
     JOIN users ON users.id = favourites.user_id

@@ -12,6 +12,7 @@ router.get("/favourites", (req, res) => {
       if (!listing) {
         return res.status(404).send("User has not created any favourites");
       }
+      
       const exports = {listing: listing, user: req.session.user}
       res.render("favourites", exports);
     })
@@ -20,5 +21,6 @@ router.get("/favourites", (req, res) => {
     });
 
 });
+
 
 module.exports = router;

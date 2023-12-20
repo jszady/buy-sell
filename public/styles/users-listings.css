@@ -1,3 +1,7 @@
+.header{
+  margin-left: 15px;
+}
+
 /*Container for all of the page*/
 .sellers-cars {
   display: flex;
@@ -40,8 +44,8 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     flex-direction: column;
     align-items: center;
-    width: calc(33.33% - 60px);
-    margin: 20px;
+    width: calc(33.33% - 90px);
+    margin: 30px;
     position: relative;
 
 }
@@ -110,6 +114,26 @@
   display: inline-block;
   margin: 15px;
 }
+
+.remove-btn {
+  padding: 5px 15px;
+  background-color: #db3434;
+  color: white;
+  border: 1px solid white;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px;
+}
+
+.remove-btn:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+
 
 
 /*stylings for edit price button*/
