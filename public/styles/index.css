@@ -68,10 +68,6 @@ img {
   position: relative;
 }
 
-.imageContainer:hover{
-  /* width: 80%; */
-}
-
 .viewListing {
   padding: 10px;
   background-color: aqua;
@@ -88,11 +84,11 @@ img {
 }
 
 .fa-star{
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .fa-star:hover{
-  transition: transform 0.8s;
+  transform: scale(1.5);
 }
 
 .sold-stamp {
