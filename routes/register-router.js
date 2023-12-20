@@ -26,6 +26,7 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   const { name, email, password, city, phone_number } = req.body;
 
+  //Error message will be either null or a message based on if a field is empty
   const errorMessage = await isEmptyFeild({
     name,
     email,
@@ -34,6 +35,8 @@ router.post("/register", async (req, res) => {
     phone_number,
   });
 
+
+  //If error message contains a message it will render a new page and provide the message
   if (errorMessage) {
     return res.render("register", {
       error: errorMessage,
