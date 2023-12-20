@@ -12,7 +12,7 @@ const insertListing = (listingInfo, userId) => {
         listingInfo.image,
         listingInfo.image2,
         listingInfo.image3,
-        userId, // user_id will need to be included in the top from the logged in user data
+        userId,
         listingInfo.brand,
         listingInfo.make,
         listingInfo.year,

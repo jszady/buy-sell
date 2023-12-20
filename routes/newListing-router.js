@@ -7,7 +7,7 @@ router.get("/newlisting", (req, res) => {
 });
 
 router.post("/newlisting", (req, res) => {
-  const userID = req.session.user.id
+  const userID = req.session.user.id;
     // Still need to get the cookie data for the user_id
     const data = {
       image: req.body.image,

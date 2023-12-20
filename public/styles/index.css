@@ -19,6 +19,12 @@ img {
   width: 100%;
 }
 
+.iconButton {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 /* Listing specific */
 
 .listings {

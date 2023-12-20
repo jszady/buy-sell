@@ -2,8 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { getListing, getAllListings } = require("../db/mainConnection");
 
+
 // The GET for the home page
 router.get("/", (req, res) => {
+
+  // Gets all the listings and puts them into the templateVars
   getAllListings().then((response) => {
     const data = response;
     const templateVars = {
