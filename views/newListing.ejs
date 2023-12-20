@@ -13,16 +13,22 @@
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/newListing.css" />
+  
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/app.js"></script>
+
   </head>
 
   <body>
     <%- include('header') %>
     <h1>New Listing</h1>
     <main>
+
       <form action="/newlisting" method="POST">
+        <% if (error) {%>
+          <div class="error" id="error"><%= error %></div>
+          <%} %>
             <label for="image">Thumbnail Photo:</label>
             <input type="text" name="image" placeholder="Please enter the Image URL">
             <label for="image">Second Photo:</label>
@@ -40,11 +46,12 @@
             <label for="transmission">Transmission:</label>
             <input type="text" name="transmission" placeholder="Please enter the Transmission"/>
             <label for="price">Price:</label>
-            <input type="text" name="price" placeholder="Please enter the Price"/>
+            <input type="number" name="price" placeholder="Please enter the Price"/>
             <label for="description">Description:</label>
-            <input type="textarea" name="description" placeholder="Please enter the description"/>
+            <textarea type="textarea" name="description" placeholder="Please enter the description" rows="6"></textarea>
             <button type="submit">Submit Listing</button>
       </form>
+      <script src="scripts/registerErrorMessage.js"></script>
     </main>
   </body>
 </html>

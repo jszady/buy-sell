@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { showListingByID } = require("../db/displayListingConnection");
 const accountSid = "ACf54e357f446af426d4bc67a3e1f46b4";
-const authToken = "b8a34b1f26b3aa1d144a7deea85d3443";
-//Allows to SMS messaging
+const authToken = "8a34b1f26b3aa1d144a7deea85d3443";
+//Allows to SMS messaging 3 b
 const client = require("twilio")(accountSid, authToken);
 
 //Gets page with url that uses listing id
