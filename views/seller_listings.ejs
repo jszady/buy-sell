@@ -71,6 +71,9 @@
               <% if (!listing[i].sold) { %>
               <button type="submit" class="price-btn">Change Price</button>
               <% } %>
+              <form method="GET" action="/<%= listing[i].id %>">
+                <button type="submit" class="relist-btn">View Listing</button>
+              </form>
             </div>
             <div class="edit-price">
             <form method="POST" action="/price">
