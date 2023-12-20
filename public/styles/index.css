@@ -88,7 +88,7 @@ img {
 }
 
 .fa-star:hover{
-  transition: transform 0.8s;
+  transform: scale(1.5);
 }
 
 .sold-stamp {
