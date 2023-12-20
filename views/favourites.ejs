@@ -1,14 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Users</title>
+
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/nav.css" />
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/users-listings.css" />
+    <link rel="stylesheet" href="/styles/delivered.css" />
+
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/users.js"></script>
+    <script type="text/javascript" src="/scripts/price.js"></script>
   </head>
+
   <body>
     <%- include('header') %>
-    <h1>WE IN FEATUERD</h1>
+
+     <% if(listing.length === 0) { %>
+      <div class="container">
+        <h3>You have not listed any vehicles for sale. Please click create post to list!</h3>
+        <a href="/newListing" class="btn">Create Post</a></li>
+      </div>
+      <% } else { %>
+        <h1>My Favourites</h1>
+
+    <div class="sellers-cars">
+
+    <% for (let i = 0; i < listing.length; i++) { %>
+    <div class="display-listing">
+
+      <h1><%= listing[i].year %> <%= listing[i].brand %> <%= listing[i].make %></h1>
+
+      <img class="car-thumbnail" src="<%= listing[i].thumbnail_photo_url %>" >
+
+        <% if (listing[i].sold) { %>
+
+
+          <img class="sold-stamp" src="/images/sold4.jpeg">
+
+            <% } %>
+
+            <div class="action-buttons">
+
+              <form method="GET" action="/<%= listing[i].id %>">
+                <button type="submit" class="relist-btn">View Listing</button>
+              </form>
+            </div>
+
+            <% if (!listing[i].sold) { %>
+            <div>
+              <p class="price-font"><b>Price:</b> $<%= listing[i].price %></p>
+            </div>
+            <% } %>
+            <% if (listing[i].sold) { %>
+              <div>
+                <p class="sold-font"><b><%= listing[i].sold %></b></p>
+              </div>
+
+              <% } %>
+
+    </div>
+    <% } %>
+    <% } %>
+  </div>
   </body>
 </html>
