@@ -52,11 +52,6 @@ router.post("/favourites", (req, res) => {
     });
   }
   });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bd847e84b3c1388a11003041643a1f3c0d281f84
 });
 
 
