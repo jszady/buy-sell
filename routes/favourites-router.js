@@ -51,8 +51,6 @@ router.post("/favourites", (req, res) => {
     });
   }
   });
-
-  res.redirect("/");
 });
 
 
