@@ -38,7 +38,7 @@ router.post("/newlisting", async (req, res) => {
 
     //If error message is not null it will call the drop down error messsage and re-render the page
     if (errorMessage) {
-      return res.render("account", {
+      return res.render("newlisting", {
         error: errorMessage,
         user: req.session.user,
       });

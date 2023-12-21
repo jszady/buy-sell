@@ -3,6 +3,6 @@ window.onload = function () {
   if (errorMessage) {
     setTimeout(function () {
       errorMessage.classList.add("hide-error");
-    }, 2000);
+    }, 2500);
   }
 };
