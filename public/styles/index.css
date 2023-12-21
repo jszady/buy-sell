@@ -73,6 +73,7 @@ img {
   padding: 10px 10px;
   height: 250px;
   width: 100%;
+  object-fit: cover;
 }
 
 .viewListing {
@@ -116,7 +117,7 @@ img {
 
 .sold-stamp {
   position: absolute;
-  top: 37%; 
+  top: 37%;
   right: 10%;
   transform: translate(-50%, -50%) rotate(-15deg);
   z-index: 1;
