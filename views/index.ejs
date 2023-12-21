@@ -50,10 +50,17 @@
           <div class="listingHeader">
             <h2><%= row.brand %></h2>
             <% if (user) {%>
-            <i class="fa-regular fa-star"></i>
-            <% if (false) { %>
-            <i class="fa-solid fa-star"></i>
-            <% } }%>
+              <form method="POST" action="/favourites">
+                <button class="iconButton" type="submit">
+                  <input class="favourite" name="id" value="<%=row.id%>" readonly/>
+                  <% if (!row.favourited) { %>
+                  <i class="fa-regular fa-star"></i>
+                  <% } else { %>
+                  <i class="fa-solid fa-star"></i>
+                  <% } %>
+                </button>
+              </form>
+              <%}%>
           </div>
           <div class="upperLeftSide">
             <div class="imageContainer">
@@ -91,17 +98,18 @@
         <div class="listing">
           <div class="listingHeader">
             <h2><%= row.brand %></h2>
+            <% if (user) {%>
             <form method="POST" action="/favourites">
               <button class="iconButton" type="submit">
-                <% if (user) {%>
+                <input class="favourite" name="id" value="<%=row.id%>" readonly/>
                 <% if (!row.favourited) { %>
-                  <input name="id" value="<%=row.id%>">
                 <i class="fa-regular fa-star"></i>
                 <% } else { %>
                 <i class="fa-solid fa-star"></i>
-                <% } }%>
+                <% } %>
               </button>
             </form>
+            <%}%>
           </div>
           <div class="upperLeftSide">
             <div class="imageContainer">

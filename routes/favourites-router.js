@@ -11,12 +11,45 @@ const addFavourite = (userId, listingId) => {
       [userId, listingId]
     )
     .then((result) => {
-      const user = result.rows[0];
-      return user || null;
+      const newFavourite = result.rows[0];
+      console.log('check new FAVOURITES', result.rows.length);
+      return newFavourite || null;
     })
     .catch((err) => {
       console.log(err.message);
     });
+};
+
+const checkFavouriteExist = (userId, listingId) => {
+  return db
+    .query(
+      `SELECT id FROM favourites
+    WHERE user_id = $1 AND listing_id = $2;`,
+      [userId, listingId]
+    )
+    .then((result) => {
+      console.log('check FAVOURITES', result.rows.length);
+      return result.rows.length > 0;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+const deleteFavourite = (userId, listingId) => {
+  return db
+  .query(
+    `DELETE FROM favourites
+    WHERE user_id = $1 AND listing_id = $2;`,
+    [userId, listingId]
+  )
+  .then((result) => {
+    console.log('check deleted FAVOURITES', result.rows.length);
+    return result.rows.length = 0;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 };
 
 router.post("/favourites", (req, res) => {
@@ -24,15 +57,29 @@ router.post("/favourites", (req, res) => {
   const listingId = req.body.id;
   console.log(userID);
   console.log(listingId);
-  // getListingId(listingId).then((response) => {
-  //   console.log(response);
-  // });
-  addFavourite(userID, listingId).then((response) => {
-    console.log(response);
+
+  let doesFavouriteExist = false;
+
+  // stop from adding favourite if it already exists
+  checkFavouriteExist(userID, listingId).then((response) => {
+    doesFavouriteExist = response;
+    console.log(doesFavouriteExist);
+
+    // Deletes favourite if it already exists
+    if (doesFavouriteExist) {
+      deleteFavourite(userID, listingId).then((response) => {
+        return res.redirect("/");
+      });
+    } else {
+      // If the favourite does not exist it will create one
+    addFavourite(userID, listingId).then((response) => {
+      console.log(response);
+      return res.redirect("/");
+    });
+  }
   });
 
   res.redirect("/");
-  // res.render("favourites", { user: req.session.user });
 });
 
 module.exports = router;

@@ -97,6 +97,10 @@ img {
   transform: scale(1.5);
 }
 
+.favourite{
+  display: none;
+}
+
 .sold-stamp {
   position: absolute;
   top: 45%;
