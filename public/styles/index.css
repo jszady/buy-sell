@@ -72,6 +72,11 @@ img {
   border: 3px solid black;
   transition: 1s;
   position: relative;
+  transition: 1s;
+}
+
+.imageContainer:hover{
+  transform: scale(1.05);
 }
 
 .viewListing {
