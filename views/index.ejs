@@ -103,7 +103,7 @@
           <div class="listingHeader">
             <h2><%= row.brand %></h2>
             <% if (user) {%>
-            <form method="POST" action="/favourites">
+            <form class="form" method="POST" action="/favourites">
               <button class="iconButton" type="submit">
                 <input class="favourite" name="id" value="<%=row.id%>" readonly/>
                 <% if (!row.favourited) { %>
@@ -147,7 +147,7 @@
       </div>
     </header>
     </main>
-    <footer></footer>
+    <script src="scripts/favourites.js"></script>
     <script src="scripts/filter-btn.js"></script>
   </body>
 </html>
