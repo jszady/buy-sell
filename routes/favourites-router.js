@@ -1,5 +1,37 @@
 const express = require("express");
+const { db } = require("../db/connection");
 const router = express.Router();
+const { addFavourite, checkFavouriteExist, deleteFavourite } = require('../db/favouritesConnection');
+
+router.post("/favourites", (req, res) => {
+  const userID = req.session.user.id;
+  const listingId = req.body.id;
+  console.log(userID);
+  console.log(listingId);
+
+  let doesFavouriteExist = false;
+
+  // stop from adding favourite if it already exists
+  checkFavouriteExist(userID, listingId).then((response) => {
+    doesFavouriteExist = response;
+    console.log(doesFavouriteExist);
+
+    // Deletes favourite if it already exists
+    if (doesFavouriteExist) {
+      deleteFavourite(userID, listingId).then((response) => {
+        return res.redirect("/");
+      });
+    } else {
+      // If the favourite does not exist it will create one
+    addFavourite(userID, listingId).then((response) => {
+      console.log(response);
+      return res.redirect("/");
+    });
+  }
+  });
+
+  res.redirect("/");
+});
 const {showFavouritesByUserID} = require("../db/displayFavouritesConnection");
 
 

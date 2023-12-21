@@ -8,7 +8,7 @@ router.get("/newlisting", (req, res) => {
 });
 
 router.post("/newlisting", async (req, res) => {
-  const userID = req.session.user.id
+  const userID = req.session.user.id;
 
     const data = {
       image: req.body.image,
