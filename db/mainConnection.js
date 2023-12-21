@@ -1,5 +1,24 @@
 const { db } = require("./connection");
 
+// Returns an array of objects that contains all the listing_id's and a new favourite key that determines whether a listing is favourited or not
+const getUserFavourites = (userID) => {
+  return db
+    .query(
+      `SELECT listing_id FROM favourites
+      WHERE user_id = $1;`,
+      [userID]
+    )
+    .then((result) => {
+      const favouritesListingId = result.rows.map(
+        (favourite) => favourite.listing_id
+      ); //array.map() loops through an array and returns an array of items of the original array depending
+      return favouritesListingId || null;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 // Gets the specific listings by the user depending on what they typed in
 const getListing = (filter) => {
   // Declaring the parameters for the statement, the conditions to be joined together later and the querystring that will hold the finished statement
@@ -56,4 +75,4 @@ const getAllListings = () => {
     });
 };
 
-module.exports = { getListing, getAllListings };
+module.exports = { getListing, getAllListings, getUserFavourites };

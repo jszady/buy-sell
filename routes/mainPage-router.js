@@ -1,25 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { db } = require("../db/connection");
-const { getListing, getAllListings } = require("../db/mainConnection");
-
-const getUserFavourites = (userID) => {
-  return db
-    .query(
-      `SELECT listing_id FROM favourites
-      WHERE user_id = $1;`,
-      [userID]
-    )
-    .then((result) => {
-      const favouritesListingId = result.rows.map(
-        (favourite) => favourite.listing_id
-      ); //array.map() loops through an array and returns an array of items of the original array depending
-      return favouritesListingId || null;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
+const { getListing, getAllListings, getUserFavourites } = require("../db/mainConnection");
 
 // The GET for the home page
 router.get("/", (req, res) => {
