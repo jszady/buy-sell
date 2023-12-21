@@ -1,9 +1,9 @@
-const { database } = require("./connection");
+const { db } = require("./connection");
 
 //Removes the favourite from the favourite table
 const removeListingFromFavouritesTable = function (userId, listingId) {
 
-  return database.db
+  return db
     .query(`DELETE FROM favourites
     WHERE favourites.user_id = $1 AND favourites.listing_id = $2`, [userId, listingId])
     .then((res) => {
@@ -17,3 +17,4 @@ const removeListingFromFavouritesTable = function (userId, listingId) {
 module.exports = {
   removeListingFromFavouritesTable
 }
+
