@@ -8,7 +8,7 @@ const showListingByID = function (id) {
   //Creates the SQL to search of that listing/user details
   return database.db
     //TODO: Adjust the select all to be more specfic
-    .query(`SELECT listings.*, users.phone_number, users.email as email, users.name as name
+    .query(`SELECT listings.*, users.phone_number, users.email as email, users.name as name, users.city as city
     FROM listings
     JOIN users ON listings.users_id = users.id
     WHERE listings.id = $1`, [id])

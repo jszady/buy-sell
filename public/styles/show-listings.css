@@ -236,3 +236,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+.location {
+  float: right;
+  margin-right: 10px;
+  color: rgb(85, 85, 85);
+
+}
+
