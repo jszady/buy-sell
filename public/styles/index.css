@@ -90,11 +90,12 @@ img {
 }
 
 .fa-star{
+  transform: scale(2);
   transition: 0.5s;
 }
 
 .fa-star:hover{
-  transform: scale(1.5);
+  transform: scale(3);
 }
 
 .favourite{
