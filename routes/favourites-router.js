@@ -2,6 +2,28 @@ const express = require("express");
 const { db } = require("../db/connection");
 const router = express.Router();
 const { addFavourite, checkFavouriteExist, deleteFavourite } = require('../db/favouritesConnection');
+const {showFavouritesByUserID} = require("../db/displayFavouritesConnection");
+
+
+router.get("/favourites", (req, res) => {
+  const userID = req.session.user.id
+
+  //Pulls all favoruites from favoruites database based on that user ID
+  showFavouritesByUserID(userID)
+    .then((listing) => {
+      if (!listing) {
+        return res.status(404).send("User has not created any favourites");
+      }
+      
+      const exports = {listing: listing, user: req.session.user}
+      res.render("favourites", exports);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+
+});
+
 
 router.post("/favourites", (req, res) => {
   const userID = req.session.user.id;
@@ -31,27 +53,6 @@ router.post("/favourites", (req, res) => {
   });
 
   res.redirect("/");
-});
-const {showFavouritesByUserID} = require("../db/displayFavouritesConnection");
-
-
-router.get("/favourites", (req, res) => {
-  const userID = req.session.user.id
-
-  //Pulls all favoruites from favoruites database based on that user ID
-  showFavouritesByUserID(userID)
-    .then((listing) => {
-      if (!listing) {
-        return res.status(404).send("User has not created any favourites");
-      }
-      
-      const exports = {listing: listing, user: req.session.user}
-      res.render("favourites", exports);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-
 });
 
 
