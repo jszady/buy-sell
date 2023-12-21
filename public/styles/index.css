@@ -34,6 +34,7 @@ form {
   width: 350px;
   text-align: left;
   transition: box-shadow 0.8s ease, transform 0.8s ease;
+  position: relative;
 }
 .listing:hover {
   transform: translateY(-5px);
@@ -115,13 +116,13 @@ img {
 
 .sold-stamp {
   position: absolute;
-  top: 45%;
-  left: 50%;
+  top: 37%; 
+  right: 10%;
   transform: translate(-50%, -50%) rotate(-15deg);
   z-index: 1;
-  height: 30%;
+  height: 75px;
   opacity: 1;
-  width: 45%
+  width: 150px;
 }
 
 /*
