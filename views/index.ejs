@@ -54,7 +54,7 @@
         <% rows.forEach(row => { %> <% if (row.featured) { %>
         <div class="listing">
           <div class="listingHeader">
-            <h2><%= row.brand %></h2>
+            <h2><%= row.brand %> <%= row.make %></h2>
             <% if (user) {%>
               <form method="POST" action="/favourites">
                 <button class="iconButton" type="submit">
@@ -104,7 +104,7 @@
         <% } else { %> <% rows.forEach(row => { %> <% if (!row.featured) { %>
         <div class="listing">
           <div class="listingHeader">
-            <h2><%= row.brand %></h2>
+            <h2><%= row.brand %> <%= row.make %></h2>
             <% if (user) {%>
             <form class="form" method="POST" action="/favourites">
               <button class="iconButton" type="submit">
