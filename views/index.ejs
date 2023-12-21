@@ -29,6 +29,9 @@
     <header>
       <h1>Featured</h1>
       <button type="button" class="filter-toggle-btn" id="filter-toggle-btn">Filter Listings by</button>
+      <% if (filter) { %>
+      <form action="/" method="GET"><button type="submit" class="clear" id="clear">Clear Filter</button></form>
+        <% } %>
       <form action="/" method="POST" class="filter-form" id="filter-form" style="display: none;">
         <label for="brand" class="filter-label">Filter Listings by:</label>
         <input type="text" name="brand" placeholder="Enter a brand name" class="filter-input"/>

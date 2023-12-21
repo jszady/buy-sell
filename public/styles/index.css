@@ -6,6 +6,7 @@ header {
 }
 form {
   margin: 20px;
+  display: inline-block;
 }
 
 
@@ -176,3 +177,26 @@ FILTER BTN
   background-color: #0056b3;
   outline: none;
 }
+
+.clear {
+  padding: 10px 25px;
+  margin-left: 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s, border-color 0.3s;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.clear:hover{
+  background-color: #0056b3;
+  outline: none;
+}
+
+

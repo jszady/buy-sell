@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
   const user = req.session.user;
   let favourites;
   let userListings;
+  let filter = false;
   // If the user is logged in it will check for favourites
   if (user) {
     getUserFavourites(user.id).then((response) => {
@@ -27,6 +28,7 @@ router.get("/", (req, res) => {
           const templateVars = {
             user: req.session.user,
             rows: userListings,
+            filter: filter
           };
           return res.render("index", templateVars);
         }
@@ -41,6 +43,7 @@ router.get("/", (req, res) => {
         const templateVars = {
           user: req.session.user,
           rows: userListings,
+          filter: filter
         };
         res.render("index", templateVars);
       });
@@ -64,6 +67,7 @@ router.post("/", (req, res) => {
   const user = req.session.user;
   let favourites;
   let userListings;
+  let filter = true;
   // The input from the filter option on the page
   const input = {
     brand: req.body.brand,
@@ -84,6 +88,7 @@ router.post("/", (req, res) => {
           const templateVars = {
             user: req.session.user,
             rows: userListings,
+            filter: filter
           };
           return res.render("index", templateVars);
         }
@@ -98,6 +103,7 @@ router.post("/", (req, res) => {
         const templateVars = {
           user: req.session.user,
           rows: userListings,
+          filter: filter
         };
         res.render("index", templateVars);
       });
@@ -109,6 +115,7 @@ router.post("/", (req, res) => {
       const templateVars = {
         user: req.session.user,
         rows: data,
+        filter: filter
       };
       res.render("index", templateVars);
     });
