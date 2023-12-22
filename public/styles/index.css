@@ -118,7 +118,7 @@ img {
 
 .sold-stamp {
   position: absolute;
-  top: 37%;
+  top: 33%;
   right: 10%;
   transform: translate(-50%, -50%) rotate(-15deg);
   z-index: 1;
