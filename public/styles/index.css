@@ -107,6 +107,10 @@ img {
   transition: 0.5s;
 }
 
+.fa-solid{
+  color: #ffd700;
+}
+
 .fa-star:hover{
   transform: scale(2.5);
   color: #ffd700;
