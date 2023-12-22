@@ -84,13 +84,6 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
 }
 
-
-/*On hover the relist button will get a box shadow*/
-.relist-btn:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
-}
-
-
 /*On hover the price button will get a box shadow*/
 .price-btn:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
@@ -98,41 +91,33 @@
 
 
 /*Stylings for relist button*/
+
+.remove-btn,
 .relist-btn {
-  padding: 5px 15px;
-  background-color: #3498db;
+  padding: 10px 20px;
   color: white;
-  border: 1px solid white;
-  border-radius: 2px;
+  border: none;
+  border-radius: 25px;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
   margin: 15px;
+  transition: background-color 0.06, box-shadow 0.06, transform 0.06;
 }
-
+.relist-btn {
+  background-color: #5dafe2;
+}
 .remove-btn {
-  padding: 5px 15px;
-  background-color: #db3434;
-  color: white;
-  border: 1px solid white;
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 15px;
+  background-color: #e25d5d;
 }
 
+.relist-btn:hover,
 .remove-btn:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
-
-
 
 /*stylings for edit price button*/
 .price-btn {
