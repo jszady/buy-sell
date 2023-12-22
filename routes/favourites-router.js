@@ -14,8 +14,14 @@ router.get("/favourites", (req, res) => {
       if (!listing) {
         return res.status(404).send("User has not created any favourites");
       }
+      const formattedListings = listing.map((listing) => {
+        return {
+          ...listing,
+          price: listing.price.toLocaleString(),
+        };
+      });
 
-      const exports = {listing: listing, user: req.session.user}
+      const exports = {listing: formattedListings, user: req.session.user}
       res.render("favourites", exports);
     })
     .catch((err) => {
@@ -28,8 +34,6 @@ router.get("/favourites", (req, res) => {
 router.post("/favourites", (req, res) => {
   const userID = req.session.user.id;
   const listingId = req.body.id;
-  console.log(userID);
-  console.log(listingId);
 
   let doesFavouriteExist = false;
 
