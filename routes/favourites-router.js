@@ -34,8 +34,6 @@ router.get("/favourites", (req, res) => {
 router.post("/favourites", (req, res) => {
   const userID = req.session.user.id;
   const listingId = req.body.id;
-  console.log(userID);
-  console.log(listingId);
 
   let doesFavouriteExist = false;
 

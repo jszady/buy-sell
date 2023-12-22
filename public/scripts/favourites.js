@@ -1,50 +1,31 @@
-// Before the page is refreshed, store the scroll position
-window.addEventListener('beforeunload', () => {
-  localStorage.setItem('scrollPosition', window.scrollY.toString());
+// Allows adding favourites to be done without a page reload for a buttery smooth UI experience
+$(document).ready(function () {
+  $(".form").on("submit", function (event) {
+    event.preventDefault();
+    const $form = $(this);
+
+    $.ajax({
+      url: "/favourites",
+      method: "POST",
+      data: $form.serialize(),
+      success: function (response) {
+
+        // If the ajax request was successfull check whether the star is solid or not and give the opposite effect
+        if ($form.find('.fa-regular').length > 0){
+          $form
+            .find(".fa-regular")
+            .removeClass("fa-regular")
+            .addClass("fa-solid");
+        } else {
+          $form
+          .find(".fa-solid")
+          .removeClass("fa-solid")
+          .addClass("fa-regular");
+        }
+      },
+      error: function (error) {
+        console.error("Error saving favourite", error);
+      },
+    });
+  });
 });
-
-// After the page is reloaded, retrieve the stored scroll position and set it
-document.addEventListener('DOMContentLoaded', () => {
-  const storedScrollPosition = localStorage.getItem('scrollPosition');
-
-  if (storedScrollPosition !== null) {
-    window.scrollTo(0, parseInt(storedScrollPosition, 10));
-  }
-});
-
-
-
-// $(document).ready(function () {
-//   $(".form").on("submit", function (event) {
-//     event.preventDefault();
-
-
-
-//     var formData = {
-//       id: $('.favourite').val(), // replace with your actual input field id
-//       favourited: $('.favourited').val(), // replace with other input fields
-//     };
-//         // Collect form data or perform other actions here
-//         console.log('Form data:', formData);
-
-//         const $tweetText = $('#tweet-text');
-//         const $favourited = $('.fa-solid');
-//         if (formData.favourited){
-//           formData.favourited = false;
-//         }
-//         console.log(formData);
-//     $.ajax({
-//       url: "/favourites", // Replace with your form submission URL
-//       method: "POST",
-//       data: formData,
-//       success: function (response) {
-//         // console.log("Form submitted successfully:", response);
-//         // Optionally, update the DOM or perform other actions on success
-//       },
-//       error: function (error) {
-//         console.error("Error submitting form:", error);
-//         // Optionally, handle errors or provide user feedback
-//       },
-//     });
-//   });
-// });
