@@ -56,6 +56,7 @@ router.get("/", (req, res) => {
         user: req.session.user,
         rows: data,
         image: data.thumbnail_photo_url,
+        filter: filter
       };
       res.render("index", templateVars);
     });
