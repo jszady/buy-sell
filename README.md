@@ -1,6 +1,6 @@
 # Buy-Sell
 
-Welcome to PropertyPlus, an app that makes payments and property management easy!  
+Welcome to Buy-Sell, a website that makes buying and selling cars easy!  
 
 
 ## Login or Register
