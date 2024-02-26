@@ -16,7 +16,7 @@ Welcome to Buy-Sell, a website that makes buying and selling cars easy!
 
 ## View Listing
 !["Upper half of the page"](https://github.com/jszady/buy-sell/blob/main/assets/ViewListing1.png)
-!["Lower half of the page"](https://github.com/jszady/buy-sell/blob/main/assets/ViewListing2.png)
+!["Lower half of the page"](https://github.com/jszady/buy-sell/blob/main/assets/ViewListings2.png)
 
 ## Add Listing
 !["Adding a new listing"](https://github.com/jszady/buy-sell/blob/main/assets/AddListing.png)
