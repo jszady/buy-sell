@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const { showListingByID } = require("../db/displayListingConnection");
-const accountSid = "ACf54e357f446af426d4bc67a3e1f46b";
-const authToken = "fabdbee4f0e95bc1df71c593e79ac1";
-//Allows to SMS messaging 3 a
+//Need to add a '3' to the end accountSid and a 'a' to the end of authToken
+//Need t oremove because push to github disables the account as Twilio sees its been published
+const accountSid = "ACf54e357f446af426d4bc67a3e1f46b4";
+const authToken = "fabdbee4f0e95bc1df71c593e79ac1c";
+//Allows to SMS messaging
 const client = require("twilio")(accountSid, authToken);
 
 //Gets page with url that uses listing id
