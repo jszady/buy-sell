@@ -1,6 +1,6 @@
 # Buy-Sell
 
-Welcome to Buy-Sell, a website that makes buying and selling cars easy!  
+Welcome to Buy-Sell, a website that makes buying and selling cars easy!   
 
 
 ## Login or Register
