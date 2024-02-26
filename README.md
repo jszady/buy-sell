@@ -1,3 +1,19 @@
+# Buy-Sell
+
+Welcome to PropertyPlus, an app that makes payments and property management easy!  
+
+
+## Login or Register
+!["Add Properties"](https://github.com/jszady/buy-sell/blob/assets/Login.png)
+## Home Page as a User
+
+## Favourites
+
+## View Listing
+
+## Home Page Logged out
+
+
 LHL Node Skeleton
 =========
 
