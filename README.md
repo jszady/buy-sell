@@ -4,14 +4,26 @@ Welcome to PropertyPlus, an app that makes payments and property management easy
 
 
 ## Login or Register
-!["Add Properties"](https://github.com/jszady/buy-sell/blob/assets/Login.png)
+!["Login Page"](https://github.com/jszady/buy-sell/blob/main/assets/Login.png)
+!["Register Page"](https://github.com/jszady/buy-sell/blob/main/assets/Register.png)
+
 ## Home Page as a User
+!["Home page upper half"](https://github.com/jszady/buy-sell/blob/main/assets/Home1User.png)
+!["Home page lower half"](https://github.com/jszady/buy-sell/blob/main/assets/Home2User.png)
 
 ## Favourites
+!["Viewing favourites"](https://github.com/jszady/buy-sell/blob/main/assets/Favourites.png)
 
 ## View Listing
+!["Upper half of the page"](https://github.com/jszady/buy-sell/blob/main/assets/ViewListing1.png)
+!["Lower half of the page"](https://github.com/jszady/buy-sell/blob/main/assets/ViewListing2.png)
+
+## Add Listing
+!["Adding a new listing"](https://github.com/jszady/buy-sell/blob/main/assets/AddListing.png)
 
 ## Home Page Logged out
+!["Home page upper half"](https://github.com/jszady/buy-sell/blob/main/assets/Home1.png)
+!["Home page lower half"](https://github.com/jszady/buy-sell/blob/main/assets/Home2.png)
 
 
 LHL Node Skeleton
